@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Stackthecode</title>
+    <link>https://stackthedoc.net/categories/linux/</link>
+    <description>Recent content in Linux on Stackthecode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://stackthedoc.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux : ssh action before and after session</title>
+      <link>https://stackthedoc.net/tip/linux-pam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stackthedoc.net/tip/linux-pam/</guid>
+      <description>Execute script when SSH open and close session Edit file /etc/pam.d/sshd and add line like this :
+session optional pam_exec.so quiet /usr/local/sbin/pam_ssh.sh pam_ssh.sh script is like this :
+#!/bin/bash if [ &amp;#34;$PAM_TYPE&amp;#34; = &amp;#34;open_session&amp;#34; ] &amp;amp;&amp;amp; [ &amp;#34;$PAM_USER&amp;#34; == &amp;#34;admin&amp;#34; ] ; then &amp;lt;do something&amp;gt; fi if [ &amp;#34;$PAM_TYPE&amp;#34; = &amp;#34;close_session&amp;#34; ] &amp;amp;&amp;amp; [ &amp;#34;$PAM_USER&amp;#34; == &amp;#34;admin&amp;#34; ] ; then &amp;lt;do something&amp;gt; fi exit 0 </description>
+    </item>
+  </channel>
+</rss>

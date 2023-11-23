@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Aws terraform authentification - Stackthecode</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Article to begin with AWS">
+		<meta property="og:title" content="Aws terraform authentification" />
+<meta property="og:description" content="Article to begin with AWS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackthedoc.net/article/aws-article-1/" /><meta property="article:section" content="article" />
+
+
+
+
+		<meta itemprop="name" content="Aws terraform authentification">
+<meta itemprop="description" content="Article to begin with AWS">
+
+<meta itemprop="wordCount" content="230">
+<meta itemprop="keywords" content="AWS,Terraform," />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Stackthecode" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Stackthecode</div>
+					
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/article/">
+				
+				<span class="menu__text">Article</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/tip/">
+				
+				<span class="menu__text">Tip</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Aws terraform authentification</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">David Hannequin</span>
+</div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>, <a class="meta__link" href="/categories/terraform/" rel="category">Terraform</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#first-step-in-aws-ihm">First step in AWS IHM</a></li>
+    <li><a href="#configure-aws-cli">Configure AWS Cli</a></li>
+    <li><a href="#terraform-configuration">Terraform configuration</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<h1 id="how-to-terraform-authentification-on-aws">How to terraform authentification on AWS</h1>
+<h2 id="first-step-in-aws-ihm">First step in AWS IHM</h2>
+<p>Connect with your account to AWS and clic on <code>Informations d'identification de sécurité</code>.</p>
+<p>Clic on <code>Créer une clé d'accès</code> and after choose <code>Interface de ligne de commande (CLI)</code></p>
+<p>Check the box <code>Je comprends la recommandation ci-dessus et  je souhaite procéder à la création d'une clé d'accès.</code> and clic on button <code>Suivant</code></p>
+<p>Enter a description and clic on button <code>Créer une clef d'accès</code></p>
+<p>Clic on button <code>Télécharger le fichier .csv</code></p>
+<h2 id="configure-aws-cli">Configure AWS Cli</h2>
+<p>Edit csv file to add header User Name (profil). It must look like below :</p>
+<pre tabindex="0"><code>User Name,Access key ID,Secret access key
+profil,EESHOO0A3CH,kigEESHOO0A6RAkeeche2FEUEE1ohshai1
+</code></pre><p>Import csv file with command below (profil_accessKeys is csv file):</p>
+<pre tabindex="0"><code>$ ws configure import --csv file://profil_accessKeys.csv
+</code></pre><p>Check with command below :</p>
+<pre tabindex="0"><code>$ aws configure list --profile profil
+  Name                    Value             Type    Location
+  ----                    -----             ----    --------
+profile                   profil           manual    --profile
+access_key     ****************3CH shared-credentials-file    
+secret_key     ****************shai1 shared-credentials-file    
+region                &lt;not set&gt;             None    None
+</code></pre><p>A file ~/.aws/credentials was create with information below :</p>
+<pre tabindex="0"><code>[profil]
+aws_access_key_id = EESHOO0A3CH
+aws_secret_access_key = kigEESHOO0A6RAkeeche2FEES2QUEE1ohshai1
+</code></pre><h2 id="terraform-configuration">Terraform configuration</h2>
+<p>Edit or create file main.tf like below :</p>
+<pre tabindex="0"><code>terraform {
+  required_providers {
+    aws = {
+      source  = &#34;hashicorp/aws&#34;
+      version = &#34;~&gt; 5.0&#34;
+    }
+  }
+}
+</code></pre><p>Edit or create file provider.tf like below :</p>
+<pre tabindex="0"><code># Configure the AWS Provider
+provider &#34;aws&#34; {
+  region     = var.aws_region
+  shared_credentials_files = [&#34;~/.aws/credentials&#34;]
+  profile = &#34;profil&#34;
+}
+</code></pre><p>Authentification at AWS is configured now.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/terraform/" rel="tag">Terraform</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About David Hannequin</span>
+	</div>
+	<div class="authorbox__description">
+		An other sysadmin&hellip;
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2023 Amir Benyekkou &amp; David Hannequin.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

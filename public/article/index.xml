@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on Stackthecode</title>
+    <link>https://stackthedoc.net/article/</link>
+    <description>Recent content in Articles on Stackthecode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://stackthedoc.net/article/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aws terraform authentification</title>
+      <link>https://stackthedoc.net/article/aws-article-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stackthedoc.net/article/aws-article-1/</guid>
+      <description>How to terraform authentification on AWS First step in AWS IHM Connect with your account to AWS and clic on Informations d&#39;identification de sécurité.
+Clic on Créer une clé d&#39;accès and after choose Interface de ligne de commande (CLI)
+Check the box Je comprends la recommandation ci-dessus et je souhaite procéder à la création d&#39;une clé d&#39;accès. and clic on button Suivant
+Enter a description and clic on button Créer une clef d&#39;accès</description>
+    </item>
+  </channel>
+</rss>
