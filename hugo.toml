@@ -53,18 +53,18 @@ paginate = "5" # Number of posts per page
   categories_counter = false # Enable counter for each category in "Categories" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget
 
-[Params.widgets.social]
-  cached = false # activate cache if true
-  # Enable parts of social widget
-  facebook = "username"
-  twitter = "username"
-  linkedin = "username"
-  github = "username"
-  email = "example@example.com"
+#[Params.widgets.social]
+#  cached = false # activate cache if true
+#  # Enable parts of social widget
+#  facebook = "username"
+#  twitter = "username"
+#  linkedin = "username"
+#  github = "username"
+#  email = "example@example.com"
 
-[[Params.widgets.social.custom]]
-  title = "My Home Page"
-  url = "https://stackthecode.net"
+#[[Params.widgets.social.custom]]
+#  title = "My Home Page"
+#  url = "https://stackthecode.net"
 
 [menu]
 [[menu.main]]
